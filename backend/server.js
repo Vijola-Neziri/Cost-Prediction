@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const upload = multer({ dest: 'uploads/', limits: { fileSize: 50 * 1024 * 1024 } }); // Increased file size limit
+const upload = multer({ dest: 'uploads/', limits: { fileSize: 50 * 1024 * 1024 } }); 
 
 // Train a TensorFlow model for regression
 async function trainModel(trainData) {
@@ -49,6 +49,7 @@ function splitDataset(data, trainSplit = 0.8) {
   const testData = shuffled.slice(trainSize);
   return { trainData, testData };
 }
+
 
 // Analyze uploaded data
 function analyzeData(data) {
