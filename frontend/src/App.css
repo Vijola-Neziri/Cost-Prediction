@@ -1,0 +1,500 @@
+/* General Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+  width: 100%;
+}
+
+/* Main App Container */
+.App {
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+  max-width: none; /* Allow it to stretch full width */
+  margin: 0; /* Remove any default margin */
+}
+
+.App:hover {
+  transform: translateY(-10px);
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: #edeef1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  color:black;
+  font-weight: 600;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color:black;
+  margin-top: 10px;
+}
+
+.start-btn, .back-btn {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  color:black;
+  background-color: #c2c2c8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-btn:hover, .back-btn:hover {
+  background-color: #C7C8CC;
+  color:white;
+}
+
+/* Upload Form */
+.upload-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.upload-form input[type="file"] {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #C7C8CC;
+  border-radius: 5px;
+  transition: border 0.3s ease-in-out;
+}
+
+.upload-form input[type="file"]:focus {
+  border-color: #B4B4B8;
+  outline: none;
+}
+
+.upload-form button {
+  padding: 12px 25px;
+  background-color:#c2c2c8;
+  color: black;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.upload-form button:hover {
+  background-color: #C7C8CC;
+  color:white;
+}
+
+/* Button Styles */
+.show-more-btn {
+  background-color: #E3E1D9;
+  color: #333;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.show-more-btn:hover {
+  background-color: #C7C8CC;
+  transform: scale(1.05);
+}
+
+/* Active Effect */
+.show-more-btn:active {
+  background-color: #B4B4B8;
+  transform: scale(1);
+}
+
+/* Focus Effect */
+.show-more-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(180, 180, 184, 0.5);
+}
+
+/* Analysis Results */
+.analysis-results {
+  text-align: center;
+}
+
+.center-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 20px;;
+  text-align: center;
+}
+
+/* Large container for the dashboard */
+.stats-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 80%;
+}
+
+/* Dashboard description */
+.stat-item1 {
+  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Container for horizontal stats */
+.stat-item2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Individual stats boxes */
+.stat-item {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  width: 45%;
+  height: 150px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.stat-item h3 {
+  font-size: 1.5rem;
+  color: #495057;
+}
+
+.stat-item p {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin-top: 10px;
+}
+
+/* Hover effect for individual stats */
+
+
+
+/* Predicted Prices Table */
+.predicted-prices {
+  margin-bottom: 40px;
+}
+
+.predicted-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  
+}
+
+.predicted-table th,
+.predicted-table td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #C7C8CC;
+}
+
+.predicted-table th {
+  background-color: #c3c2c0;
+  color: #333;
+}
+
+.predicted-table td {
+  background-color: white;
+}
+
+/* Charts Container */
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes the full width */
+}
+
+.chart-box {
+  width: 100%;
+  max-width: 600px; /* Increase width of chart box */
+  height: 400px; /* Increase height of chart box */
+  padding: 20px;
+  background-color:white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.chart-box h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Radar Chart Custom Styling */
+.chart-box canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 350px;
+  border-radius: 8px;
+}
+
+/* Filter Section */
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-input {
+  padding: 12px;
+  width: 300px;
+  font-size: 1rem;
+  border: 2px solid #C7C8CC;
+  border-radius: 5px;
+  transition: border 0.3s ease;
+}
+
+.filter-input:focus {
+  border-color: #B4B4B8;
+  outline: none;
+}
+
+.clear-filter-btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  background-color: #B4B4B8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.clear-filter-btn:hover {
+  background-color: #C7C8CC;
+}
+
+.no-results {
+  margin-top: 10px;
+  color: #FF5733;
+  font-style: italic;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  
+/* Charts Container */
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px; /* Increased horizontal gap between charts */
+  flex-wrap: wrap;
+  width: 100%; /* Ensure it takes the full width */
+  margin-top: 20px; /* Add a top margin to give some space from any content above */
+  margin-bottom: 40px; /* Bottom margin for more spacing */
+}
+
+/* Chart Box */
+.chart-box {
+  width: 100%;
+  max-width: 600px; /* Increase width of chart box */
+  height: 400px; /* Increase height of chart box */
+  padding: 20px;
+  background-color:white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 60px; /* Increased bottom margin for more space between rows */
+}
+
+.chart-box:hover {
+  transform: scale(1.03);
+}
+
+.chart-box h3 {
+  font-size: 1.6rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Radar Chart Custom Styling */
+.chart-box canvas {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 350px;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .charts-container {
+    gap: 40px; /* Increased gap for mobile view */
+  }
+
+  /* Chart Box */
+  .chart-box {
+    margin-bottom: 40px; /* Margin for spacing between chart boxes on mobile */
+  }
+}
+
+  .stats-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-item {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .filter-input {
+    width: 100%;
+  }
+}
+
+/* Home Page Layout */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+/* Flex Container for Text and Image */
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  gap: 30px; /* Space between text and image */
+}
+
+/* Text Content Styles */
+.text-content {
+  flex: 1;
+  max-width: 50%; /* Ensures the text takes up half the width */
+}
+
+.text-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  color: #4A4A4A;
+  margin-bottom: 15px;
+}
+
+.start-btn {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  color: #F2EFE5;
+  background-color: #B4B4B8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #C7C8CC;
+}
+
+/* Image Content Styles */
+/* Home Page Styles */
+.home-page .home-content {
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+
+.image-content {
+  flex: 1;
+  text-align: center;
+}
+
+.image-content img {
+  max-width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.toggle-columns-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color:  #B4B4B8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-columns-btn:hover {
+  background-color: #555656;
+}
+
+.toggle-columns-btn:active {
+  transform: scale(0.95);
+}
+
+.toggle-columns-btn:focus {
+  outline: none;
+  box-shadow:  #B4B4B8;
+}
+.chart-description {
+  margin-top: 10px;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  background-color: #e0e0e2;
+  height: 30px;
+  width: 100%; /* Make sure description takes full width of the container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
