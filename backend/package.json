@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "express": "^4.21.1",
+    "file-saver": "^2.0.5",
+    "fs": "^0.0.1-security",
+    "json2csv": "^6.0.0-alpha.2",
+    "jspdf": "^2.5.2",
+    "mathjs": "^13.2.1",
+    "ml-regression": "^6.2.0",
+    "multer": "^1.4.5-lts.1",
+    "natural": "^8.0.1",
+    "papaparse": "^5.4.1",
+    "path": "^0.12.7",
+    "regression": "^2.0.1"
+  }
+}
