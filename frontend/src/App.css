@@ -1,7 +1,7 @@
 /* General Styles */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color:white;
+  background-color:rgb(228, 224, 220);
   margin: 0;
   padding: 0;
   display: flex;
@@ -30,28 +30,28 @@ body {
 .header {
   text-align: center;
   margin-bottom: 40px;
-  background-color: #edeef1;
+  background-color: rgb(16, 44, 87);
   padding: 20px;
   border-radius: 8px;
 }
 
 .header h1 {
   font-size: 2.8rem;
-  color:black;
+  color:white;  
   font-weight: 600;
 }
 
 .header p {
   font-size: 1.2rem;
-  color:black;
+  color:white;
   margin-top: 10px;
 }
 
 .start-btn, .back-btn {
   padding: 12px 20px;
   font-size: 1.1rem;
-  color:black;
-  background-color: #c2c2c8;
+  color:white;
+  background-color:rgb(218, 192, 163);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -59,7 +59,7 @@ body {
 }
 
 .start-btn:hover, .back-btn:hover {
-  background-color: #C7C8CC;
+  background-color: rgb(234, 219, 200);
   color:white;
 }
 
@@ -70,25 +70,29 @@ body {
   align-items: center;
   margin-bottom: 40px;
   gap: 20px;
+  
 }
 
 .upload-form input[type="file"] {
   padding: 12px;
   font-size: 1rem;
-  border: 2px solid #C7C8CC;
+  border: 2px solid rgb(16, 44, 87);
   border-radius: 5px;
   transition: border 0.3s ease-in-out;
+  
 }
 
 .upload-form input[type="file"]:focus {
-  border-color: #B4B4B8;
+  border-color: rgb(16, 44, 87);
   outline: none;
+  background-color:rgb(16, 44, 87);
+
 }
 
 .upload-form button {
   padding: 12px 25px;
-  background-color:#c2c2c8;
-  color: black;
+  background-color:rgb(16, 44, 87);
+  color:white;
   font-size: 1.1rem;
   border: none;
   border-radius: 5px;
@@ -97,7 +101,7 @@ body {
 }
 
 .upload-form button:hover {
-  background-color: #C7C8CC;
+  background-color:rgb(218, 192, 163);
   color:white;
 }
 
@@ -114,23 +118,6 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-/* Hover Effect */
-.show-more-btn:hover {
-  background-color: #C7C8CC;
-  transform: scale(1.05);
-}
-
-/* Active Effect */
-.show-more-btn:active {
-  background-color: #B4B4B8;
-  transform: scale(1);
-}
-
-/* Focus Effect */
-.show-more-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(180, 180, 184, 0.5);
-}
 
 /* Analysis Results */
 .analysis-results {
@@ -155,18 +142,20 @@ body {
   padding: 30px;
   border-radius: 12px;
   max-width: 80%;
+  
 }
 
 /* Dashboard description */
 .stat-item1 {
   text-align: center;
   background-color: #ffffff;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(16, 44, 87);
   border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
   width: 100%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: rgb(234, 219, 200);
 }
 
 /* Container for horizontal stats */
@@ -179,8 +168,8 @@ body {
 
 /* Individual stats boxes */
 .stat-item {
-  background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  background-color: rgb(234, 219, 200);
+  border: 1px solid rgb(16, 44, 87);;
   border-radius: 8px;
   padding: 20px;
   text-align: center;
@@ -192,18 +181,14 @@ body {
 
 .stat-item h3 {
   font-size: 1.5rem;
-  color: #495057;
+  color:rgb(16, 44, 87);
 }
 
 .stat-item p {
   font-size: 1.2rem;
-  color: #343a40;
+  color: rgb(16, 44, 87);
   margin-top: 10px;
 }
-
-/* Hover effect for individual stats */
-
-
 
 /* Predicted Prices Table */
 .predicted-prices {
@@ -221,16 +206,17 @@ body {
 .predicted-table td {
   padding: 12px;
   text-align: center;
-  border: 1px solid #C7C8CC;
+  border: 1px solid rgb(16, 44, 87);
 }
 
 .predicted-table th {
-  background-color: #c3c2c0;
-  color: #333;
+  background-color: rgb(16, 44, 87);
+  color: white;
 }
 
 .predicted-table td {
   background-color: white;
+  color:black;
 }
 
 /* Charts Container */
@@ -249,13 +235,13 @@ body {
   padding: 20px;
   background-color:white;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgb(16, 44, 87);
 }
 
 
 .chart-box h3 {
   font-size: 1.6rem;
-  color: #333;
+  color:black;
   margin-bottom: 20px;
 }
 
@@ -285,7 +271,7 @@ body {
   padding: 12px;
   width: 300px;
   font-size: 1rem;
-  border: 2px solid #C7C8CC;
+  border: 2px solid rgb(16, 44, 87);
   border-radius: 5px;
   transition: border 0.3s ease;
 }
@@ -298,7 +284,7 @@ body {
 .clear-filter-btn {
   padding: 10px 15px;
   font-size: 1rem;
-  background-color: #B4B4B8;
+  background-color:  rgb(16, 44, 87);
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -415,7 +401,7 @@ body {
 
 .text-content h1 {
   font-size: 2.5rem;
-  color: #333;
+  color:rgb(16, 44, 87);
   margin-bottom: 20px;
 }
 
@@ -429,7 +415,7 @@ body {
   padding: 12px 20px;
   font-size: 1.1rem;
   color: #F2EFE5;
-  background-color: #B4B4B8;
+  background-color:  rgb(16, 44, 87);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -437,10 +423,9 @@ body {
 }
 
 .start-btn:hover {
-  background-color: #C7C8CC;
+  background-color:rgb(218, 192, 163);
 }
 
-/* Image Content Styles */
 /* Home Page Styles */
 .home-page .home-content {
   flex-direction: row;
@@ -454,7 +439,7 @@ body {
 }
 
 .image-content img {
-  max-width: 60%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
 }
@@ -465,7 +450,7 @@ body {
   font-size: 16px;
   font-weight: bold;
   color: #ffffff;
-  background-color:  #B4B4B8;
+  background-color:  rgb(16, 44, 87);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -474,7 +459,7 @@ body {
 }
 
 .toggle-columns-btn:hover {
-  background-color: #555656;
+  background-color:rgb(218, 192, 163);
 }
 
 .toggle-columns-btn:active {
@@ -490,7 +475,7 @@ body {
   font-size: 14px;
   color: black;
   text-align: center;
-  background-color: #e0e0e2;
+  background-color:rgb(234, 219, 200);
   height: 30px;
   width: 100%; /* Make sure description takes full width of the container */
   display: flex;
