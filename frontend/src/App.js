@@ -58,19 +58,19 @@ function App() {
 
   const getRadarChartData = () => {
     if (!filteredCategories) return { labels: [], datasets: [] };
-
+  
     const categories = Object.keys(filteredCategories);
-    const totalPrices = categories.map((cat) => {
-      const items = filteredCategories[cat];
-      return items.reduce((sum, product) => sum + parseFloat(product.price || 0), 0);
+    const predictedPrices = categories.map((cat) => {
+      const predictedPrice = analysisResult.predictedPrices[cat];
+      return predictedPrice || 0; // Ensure default value if no predicted price exists
     });
-
+  
     return {
       labels: categories,
       datasets: [
         {
-          label: 'Total Price by Category',
-          data: totalPrices,
+          label: 'Predicted Price by Category', // Update the label
+          data: predictedPrices,
           backgroundColor: 'rgba(137, 141, 153, 0.2)',
           borderColor: '#4F6D7A',
           borderWidth: 2,
@@ -82,7 +82,7 @@ function App() {
       ],
     };
   };
-
+  
   const getFilteredChartData = (type) => {
     if (!filteredCategories) return { labels: [], datasets: [] };
 
@@ -272,7 +272,7 @@ function App() {
                     <div className="chart-box small-box">
                       <Radar data={getRadarChartData()} />
                       <div className="chart-description">
-                        <p>This radar chart shows the total price of products grouped by category.</p>
+                        <p>This radar chart shows the predicted price by category</p>
                       </div>
                     </div>
                     <div className="chart-box large-box">

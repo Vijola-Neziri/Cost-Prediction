@@ -65,67 +65,57 @@ function analyzeData(data) {
 
   const priceRanges = data.reduce((acc, item) => {
     const price = parseFloat(item.price || 0);
-    if (price < 50) acc['<50'] = (acc['<50'] || 0) + 1;
-    else if (price < 100) acc['50-100'] = (acc['50-100'] || 0) + 1;
-    else if (price < 150) acc['100-150'] = (acc['100-150'] || 0) + 1;
-    else if (price < 200) acc['150-200'] = (acc['150-200'] || 0) + 1;
-    else if (price < 500) acc['200-500'] = (acc['200-500'] || 0) + 1;
-    else acc['>500'] = (acc['>500'] || 0) + 1;
-
+    if (price < 50) acc['<50'] = acc['<50'] ? acc['<50'] + 1 : 1;
+    else if (price < 100) acc['50-100'] = acc['50-100'] ? acc['50-100'] + 1 : 1;
+    else if (price < 200) acc['100-200'] = acc['100-200'] ? acc['100-200'] + 1 : 1;
+    else acc['>200'] = acc['>200'] ? acc['>200'] + 1 : 1;
     return acc;
   }, {});
-
-  // Calculate average height for products
-  const averageHeight = data.reduce((sum, item) => sum + parseFloat(item.height || 0), 0) / totalProducts;
 
   return { groupedByCategory, totalProducts, averagePrice, priceRanges };
 }
 
-// Handle file upload and data processing
+// Endpoint for file upload and analysis
 app.post('/upload', upload.single('file'), async (req, res) => {
   if (!req.file) {
-    return res.status(400).json({ error: 'No file uploaded.' });
+    return res.status(400).send('No file uploaded');
   }
 
   const results = [];
   fs.createReadStream(req.file.path)
     .pipe(csv())
-    .on('data', (data) => results.push(data))
+    .on('data', (row) => {
+      results.push(row);
+    })
     .on('end', async () => {
-      try {
-        const preparedData = prepareData(results);
+      const preparedData = prepareData(results);
+      const { trainData } = splitDataset(preparedData);
 
-        // Split the dataset into training and testing data
-        const { trainData, testData } = splitDataset(preparedData);
+      const model = await trainModel(trainData);
 
-        // Train the model using the training data
-        const model = await trainModel(trainData);
-
-        // Predict price for all categories
-        const predictedPrices = {};
-        const categories = [...new Set(results.map((item) => item.category))];
-        for (const category of categories) {
-          const categoryIndex = preparedData.find((item) => item.category === category).categoryIndex;
-          const predictedPrice = await predictPriceWithAI(model, categoryIndex);
-          predictedPrices[category] = predictedPrice;
+      const predictedPrices = {};
+      const uniqueCategories = [...new Set(results.map((item) => item.category))];
+      for (const category of uniqueCategories) {
+        const categoryIndex = preparedData.find((item) => item.category === category)?.categoryIndex;
+        if (categoryIndex !== undefined) {
+          predictedPrices[category] = await predictPriceWithAI(model, categoryIndex);
         }
-
-        const analysis = analyzeData(preparedData);
-        res.json({
-          ...analysis,
-          predictedPrices,
-          trainDataCount: trainData.length,
-          testDataCount: testData.length,
-        });
-      } catch (error) {
-        console.error('Error processing data:', error);
-        res.status(500).json({ error: 'Error processing data' });
-      } finally {
-        fs.unlinkSync(req.file.path); // Clean up uploaded file
       }
+
+      const analysisResult = analyzeData(results);
+      analysisResult.predictedPrices = predictedPrices;
+
+      fs.unlinkSync(req.file.path); // Cleanup uploaded file
+      res.json(analysisResult);
+    })
+    .on('error', (error) => {
+      console.error('Error processing file:', error);
+      res.status(500).send('Failed to process the file');
     });
 });
 
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+// Start the server
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
