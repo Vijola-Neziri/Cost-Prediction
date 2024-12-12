@@ -5,6 +5,10 @@ import axios from 'axios';
 import './App.css';
 import 'chart.js/auto';
 import photo2 from './photo2.jpg';
+import jsPDF from 'jspdf';
+
+import html2canvas from 'html2canvas';
+
 
 function App() {
   const [analysisResult, setAnalysisResult] = useState(null);
@@ -53,7 +57,19 @@ function App() {
       setFilteredCategories(analysisResult?.groupedByCategory);
     }
   };
-
+  const saveAsPDF = () => {
+    const chartContainer = document.querySelector('.charts-container');
+    if (chartContainer) {
+      html2canvas(chartContainer).then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('landscape');
+        pdf.addImage(imgData, 'PNG', 10, 10, 280, 190);
+        pdf.save('charts.pdf');
+      });
+    } else {
+      alert('No chart data to save!');
+    }
+  };
   const neutralColors = ['#8B9DC3', '#4F6D7A', '#B0C4DE', '#C0C0C0', '#A9A9A9'];
 
   const getRadarChartData = () => {
@@ -296,6 +312,7 @@ function App() {
                         <p>Average price by category.</p>
                       </div>
                     </div>
+                    <button className="save-pdf-btn" onClick={saveAsPDF}>Save as PDF</button>
                   </div>
                 </div>
               </div>
