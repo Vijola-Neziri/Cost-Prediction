@@ -62,14 +62,14 @@ function App() {
     const categories = Object.keys(filteredCategories);
     const predictedPrices = categories.map((cat) => {
       const predictedPrice = analysisResult.predictedPrices[cat];
-      return predictedPrice || 0; // Ensure default value if no predicted price exists
+      return predictedPrice || 0; 
     });
   
     return {
       labels: categories,
       datasets: [
         {
-          label: 'Predicted Price by Category', // Update the label
+          label: 'Predicted Price by Category', 
           data: predictedPrices,
           backgroundColor: 'rgba(137, 141, 153, 0.2)',
           borderColor: '#4F6D7A',
@@ -78,6 +78,7 @@ function App() {
           pointBorderColor: '#4F6D7A',
           pointBorderWidth: 1,
           pointRadius: 5,
+          
         },
       ],
     };
@@ -183,9 +184,8 @@ function App() {
               <div className="text-content">
                 <h1>The development of a model for financial cost prediction using AI/ML algorithms</h1>
                 <p>
-                  AI and ML technologies have revolutionized how financial data is analyzed and
-                  predicted. This project aims to develop a model that identifies financial trends
-                  and predicts costs accurately and efficiently.
+                Artificial Intelligence (AI) and Machine Learning (ML) technologies have transformed the way financial data is analyzed and forecasted.
+                 These advancements enable the identification of financial trends and provide accurate cost predictions with improved efficiency.
                 </p>
                 <button className="start-btn" onClick={() => setIsHomePage(false)}>
                   Start Model Development
